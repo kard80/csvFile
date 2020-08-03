@@ -35,14 +35,13 @@ function App() {
   const submitData = async () => {
     const formData = new FormData();
     formData.append('file', file)
+    await fetchData()
     await axios.post('/', formData)
-    fetchData()
     setFile('')
   }
   useEffect(() => {
     fetchData()
   }, [])
-
   useEffect(() => {
     getKeys()
   },[getData])
@@ -87,7 +86,6 @@ function App() {
     <div className="App">
       <input type="file" onChange={e => handleUploadImage(e)} />
       <button onClick={submitData}>Submit</button>
-      <button onClick={() => console.log(getData)}>Console</button>
       {filename.map(item =>( 
       <span style = {{display: 'flex'}} onClick={() => callData(item.fileName)}>{item.fileName}</span>))}
       <ReactHTMLTableToExcel
