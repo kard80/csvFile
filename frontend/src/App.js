@@ -14,11 +14,10 @@ function App() {
 
 
   const fetchData = async () => {
-    const result = await axios.get('/')
+    // const result = await axios.get('/')
     const filename = await axios.get('/filename')
-    setGetData(result.data)
+    // setGetData(result.data)
     setFilename(filename.data)
-    console.log(result.data)
     setIsUpdate(!isUpdate)
   }
 

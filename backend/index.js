@@ -11,15 +11,15 @@ app.use(express.urlencoded({extended: false}))
 app.use(express.json())
 app.use(cors())
 
-app.get('/', async (req, res) => {
-    const result = [];
-    fs.createReadStream('../frontend/src/uploads/1596430095946.csv')
-    .pipe(csv())
-    .on('data', data => result.push(data))
-    .on('end', () => {
-        res.send(result)
-    })
-})
+// app.get('/', async (req, res) => {
+//     const result = [];
+//     fs.createReadStream('../frontend/src/uploads/1596430095946.csv')
+//     .pipe(csv())
+//     .on('data', data => result.push(data))
+//     .on('end', () => {
+//         res.send(result)
+//     })
+// })
 
 app.get('/filename', async (req, res) => {
     const filename = await db.fileName.findAll();
